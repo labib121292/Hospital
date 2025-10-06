@@ -1,9 +1,14 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "frontend/package.json", "use": "@vercel/next" }
-  ],
+  "version": 3,
+  "projects": {
+    "rootDirectory": "frontend"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
   "routes": [
-    { "src": "/(.*)", "dest": "frontend/$1" }
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
