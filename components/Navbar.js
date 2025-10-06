@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const menuItems = [
   { label: "FAQ", href: "/faq" },
@@ -147,14 +149,17 @@ export default function Navbar() {
         {/* Main navigation */}
         <nav className="flex items-center justify-center px-2 sm:px-4 lg:px-6 py-3 bg-gray-100 shadow-md z-50 mt-0 relative">
           <div className="flex items-center justify-between w-full max-w-7xl">
-            <a href="/" className="flex items-center space-x-2 flex-shrink-0">
-              <img
+            <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+              <Image
                 src="https://banner2.cleanpng.com/20180605/jwr/kisspng-computer-icons-interview-engineering-hospita-5b166644787189.9441098015281946284934.jpg"
                 alt="Hospital"
+                width={32}
+                height={32}
+                unoptimized
                 className="h-6 w-auto md:h-8"
               />
               <span className="font-semibold text-sm md:text-lg text-blue-700">HOSPITAL</span>
-            </a>
+            </Link>
 
             {/* Desktop menu */}
             <ul className="hidden md:flex space-x-3 text-xs text-gray-700 font-medium">

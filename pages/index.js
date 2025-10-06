@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { fetchDoctors } from "../utils/api";
@@ -10,7 +12,7 @@ function FeatureCard({ bg, icon, title, text, link }) {
       href={link}
       className={`${bg} text-white rounded-lg p-8 transform hover:scale-105 transition duration-300 block`}
     >
-      <img src={icon} alt={title} className="mx-auto h-16 mb-4" />
+      <Image src={icon} alt={title} width={64} height={64} unoptimized className="mx-auto h-16 mb-4" />
       <h3 className="font-bold text-lg mb-2">{title}</h3>
       <p className="text-sm">{text}</p>
     </a>
@@ -40,12 +42,9 @@ export default function HomePage() {
           playsInline
         ></video>
         <div className="absolute bottom-0 left-0 right-0 flex justify-center md:mb-[-25px] mb-[-35px]  transform hover:scale-105 transition duration-300">
-          <a
-            href="/appointment"
-            className="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow hover:bg-gray-100 transition"
-          >
-            Book an Appointment
-          </a>
+      <Link href="/appointment" className="bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow hover:bg-gray-100 transition">
+        Book an Appointment
+      </Link>
         </div>
       </section>
 
@@ -62,9 +61,12 @@ export default function HomePage() {
                 "polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)",
             }}
           >
-            <img
+            <Image
               src="https://i0.wp.com/parkview.com.bd/wp-content/uploads/2015/09/icon_tree_white.png?fit=99%2C100&amp;#038;ssl=1"
               alt="Departments"
+              width={64}
+              height={64}
+              unoptimized
               className="h-12 md:h-16 mb-3 md:mb-4"
             />
             <h3 className="font-bold uppercase text-lg md:text-xl">Departments</h3>
@@ -78,9 +80,12 @@ export default function HomePage() {
                 "polygon(40px 0, 100% 0, 100% 100%, 40px 100%, 0 50%)",
             }}
           >
-            <img
+            <Image
               src="https://i0.wp.com/parkview.com.bd/wp-content/uploads/2015/09/icon_med_book_white.png?fit=103%2C100&amp;#038;ssl=1"
               alt="Medical Services"
+              width={64}
+              height={64}
+              unoptimized
               className="h-12 md:h-16 mb-3 md:mb-4"
             />
             <h3 className="font-bold uppercase text-lg md:text-xl">Medical Services</h3>
@@ -94,9 +99,12 @@ export default function HomePage() {
                 "polygon(0 0, calc(100% - 40px) 0, 100% 50%, calc(100% - 40px) 100%, 0 100%)",
             }}
           >
-            <img
+            <Image
               src="https://i0.wp.com/parkview.com.bd/wp-content/uploads/2015/09/icon_doctor1.png?fit=94%2C100&amp;#038;ssl=1"
               alt="Find a doctor"
+              width={64}
+              height={64}
+              unoptimized
               className="h-12 md:h-16 mb-3 md:mb-4"
             />
             <h3 className="font-bold uppercase text-lg md:text-xl">Find a doctor</h3>
@@ -111,9 +119,12 @@ export default function HomePage() {
                 "polygon(40px 0, 100% 0, 100% 100%, 40px 100%, 0 50%)",
             }}
           >
-            <img
+            <Image
               src="https://i0.wp.com/parkview.com.bd/wp-content/uploads/2015/09/icon_help_desk1.png?fit=130%2C100&amp;#038;ssl=1"
               alt="Request an appointment"
+              width={64}
+              height={64}
+              unoptimized
               className="h-12 md:h-16 mb-3 md:mb-4"
             />
             <h3 className="font-bold uppercase text-lg md:text-xl">Request an appointment</h3>
