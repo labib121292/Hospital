@@ -32,7 +32,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative md:pt-17 pt-22 "> {/* pt-16 to offset navbar height */}
+      <section className="relative md:pt-17 pt-14 "> {/* pt-16 to offset navbar height */}
         <video
           className="w-full h-auto"
           src="/a.mp4"

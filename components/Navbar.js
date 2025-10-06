@@ -9,14 +9,22 @@ const menuItems = [
     label: "CHECK PRICE",
     href: "#",
     submenu: [
-      { label: "Service 1", href: "/check-price/service1" },
-      { label: "Service 2", href: "/check-price/service2" },
+      { label: "Item 1", href: "/check-price/item1" },
+      { label: "Item 2", href: "/check-price/item2" },
     ],
   },
 ];
 
 const mainMenuItems = [
   { label: "HOME", href: "/" },
+  {
+    label: "CHECK PRICE",
+    href: "#",
+    submenu: [
+      { label: "Service 1", href: "/check-price/item1" },
+      { label: "Service 2", href: "/check-price/item2" },
+    ],
+  },
   {
     label: "ABOUT US",
     href: "#",
@@ -86,54 +94,32 @@ export default function Navbar() {
   
   return (
     <>
-      {/* New top bar */}
-      <div className="hidden lg:flex bg-gray-50 border-b border-gray-300 px-4 py-1 justify-between items-center text-xs text-gray-700 fixed top-0 left-0 right-0 z-40">
-        <div className="flex md:space-x-5 md:ml-3 space-x-1.5 ml-[-7px]">
-          <a href="/faq" className="hover:text-blue-600">FAQ</a>
-          <a href="/appointment" className="hover:text-blue-600">APPOINTMENT BOOKING</a>
-          <div className="relative group">
-            <button className="hover:text-blue-600 flex items-center space-x-0">
-              <span>CHECK PRICE</span>
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <div className="absolute left-0 top-full bg-white border border-gray-300 rounded shadow-md mt-1 hidden group-hover:block min-w-max z-20">
-              <a href="/check-price/service1" className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap">Service 1</a>
-              <a href="/check-price/service2" className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap">Service 2</a>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center space-x-1 text-gray-700 mr-[-10px] md:mr-3">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h1l2 5h13M16 16a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          <span>24/7 Hotline <strong>+8809610-818888</strong></span>
-        </div>
-      </div>
+     
+     
 
       {/* Main navbar */}
       <header className="bg-gray-100 border-b justify-between items-center fixed top-0 left-0 right-0 z-20 border-gray-300">
-        <div className="flex flex-row flex-nowrap justify-between items-center px-2 sm:px-4 py-1 text-xs text-gray-700 border-b border-gray-300">
-          <div className="flex flex-nowrap space-x-1 sm:space-x-2 md:space-x-3 text-xs">
+         {/* New top bar */}
+        <div className="hidden md:flex flex-row flex-nowrap justify-between items-center px-2 sm:px-4 py-1 text-xs text-gray-700 border-b border-gray-300">
+          <div className="flex ml-2 flex-nowrap space-x-1 sm:space-x-2 md:space-x-6 text-xs">
             {menuItems.map((item, idx) =>
               item.submenu ? (
                 <div key={idx} className="relative group">
-                  <a href={item.href} className="hover:text-blue-600 cursor-pointer">
+                 {/*  <button className="hover:text-blue-600 cursor-pointer">
                     {item.label} ▼
-                  </a>
-                  <div className="absolute left-0 top-full bg-white border border-gray-300 rounded shadow-md mt-1 hidden group-hover:block z-10 min-w-max">
+                  </button> */}
+                  <div className="absolute left-0 top-full bg-white border border-gray-300 rounded shadow-md mt-1 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-300 z-30 min-w-max">
                     {item.submenu.map((subitem, subidx) => (
-                      <a key={subidx} href={subitem.href} className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap">
+                      <Link key={subidx} href={subitem.href} className="block px-4 py-2 hover:bg-gray-100 whitespace-nowrap">
                         {subitem.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <a key={idx} href={item.href} className="hover:text-blue-600 normal-case">
+                <Link key={idx} href={item.href} className="hover:text-blue-600 normal-case">
                   {item.label}
-                </a>
+                </Link>
               )
             )}
           </div>
@@ -166,24 +152,24 @@ export default function Navbar() {
               {mainMenuItems.map((item, idx) =>
                 item.submenu ? (
                   <li key={idx} className="relative group">
-                    <a href={item.href} className="hover:text-blue-600 cursor-pointer">
+                    <button className="hover:text-blue-600 cursor-pointer">
                       {item.label} ▼
-                    </a>
+                    </button>
                     <ul className="absolute left-0 top-full bg-white border border-gray-300 rounded shadow-md mt-1 hidden group-hover:block z-10 min-w-max">
                       {item.submenu.map((subitem, subidx) => (
                         <li key={subidx}>
-                          <a href={subitem.href} className="block px-3 py-1 hover:bg-gray-100 whitespace-nowrap">
+                          <Link href={subitem.href} className="block px-3 py-1 hover:bg-gray-100 whitespace-nowrap">
                             {subitem.label}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </li>
                 ) : (
                   <li key={idx}>
-                    <a href={item.href} className="hover:text-blue-600">
+                    <Link href={item.href} className="hover:text-blue-600">
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 )
               )}
@@ -213,7 +199,7 @@ export default function Navbar() {
 
           {/* Mobile menu */}
           <div
-            className={`fixed top-8 right-0 h-full w-72 bg-white
+            className={`fixed top-0 right-0 h-full w-72 bg-white
               rounded-3xl shadow-xl transform transition-transform duration-300 border-b-4 border-b-blue-600
               ease-in-out z-50  ${
               mobileMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -258,12 +244,12 @@ export default function Navbar() {
           <ul className="pl-6 bg-gray-50 max-h-48 overflow-y-auto">
             {item.submenu.map((subitem, subidx) => (
               <li key={subidx} className="border-b border-gray-100">
-                <a
+                <Link
                   href={subitem.href}
                   className="block px-4 py-2 text-sm hover:text-blue-600"
                 >
                   {subitem.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
