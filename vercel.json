@@ -2,13 +2,6 @@
   "version": 3,
   "projects": {
     "rootDirectory": "frontend"
-  },
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
-  ]
+  }
+
 }
