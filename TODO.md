@@ -1,0 +1,1 @@
+- [x] Hide the new top bar on mobile screens in Navbar.js
